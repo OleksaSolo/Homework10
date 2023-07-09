@@ -1,48 +1,63 @@
 from collections import UserList
 
 class AddressBook(UserList):
-    ...
-def add(*args):
-    name = Name(args[0])
-    phone = Phone(args[1])
-    rec = Record(name, phone)
-    return ab.add_rec(rec)
+    def __init__(self):
+        self.data = []
+
+    def add_record(self, rec):
+        # self.data[] = rec
+        return f"Add success {rec}"
     
 class Record:
-    #current_id = 1
-    def __init__(self, name, phone):
+
+    def __init__(self, name, *phone):
         self.name = name
-        self.phone = phone
+        self.phone = (i for i in range(len(phone)))
 
-    # def __init__(self):
-    #     self.record = []
+    def add(rec):
+        return AddressBook.add_record(rec)
 
-    def list_record(self):
-        return self.record
+    def edit(*args):
+        name = Name(args[0])
+        phone = Phone(args[1])
+        new_phone = Phone(args[2])
+
+        # if CONTACTS.get(name) != None:
+        #     CONTACTS.pop(name)
+        #     CONTACTS[name] = phone
+        #     #print(CONTACTS)
+        #     return f"Update success {name} {phone}"
+        # else:
+        #     return f"Notebook have not {name}"
+        
+    def delete(name):
+        ...
 
 class Field:
     ...
 
 class Name(Field):
     def __init__(self, name):
-        self.name = name
+        self.value = name
 
 
 class Phone(Field):
     def __init__(self, phone):
-        self.phone = phone
+        self.list = phone
 
 if __name__ == "__main__":
-    
+
     ab = AddressBook()
-    print(ab)
+    # print(ab)
     name = Name("Bill")
-    phone1 = Phone("12345")
-    rec = Record(name, phone1)
-    print(rec.name)
-    print(rec.list_record)
+    #phone1 = Phone("12345")
+    #phone2 = Phone("54321")
+    #rec = Record(name, phone1, phone2)
+
+    print(name.value)
+    # print(rec.list_record)
     
-    # ab.add_record(rec)
+    #ab.add_record(rec)
     
     # ab.add_record(Record(Name("Jill")))
     
