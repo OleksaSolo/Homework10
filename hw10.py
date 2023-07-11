@@ -13,15 +13,20 @@ class AddressBook(UserList):
 class Record:
     def __init__(self, name, *phone):
         self.name = name
-        #self.phone = (i for i in range(len(phone)))
-        #self.phones.append(i for i in range(len(phone)))
-        self.phones = []
-        self.phones.append(phone)
+        #notcorrect#self.phone = (i for i in range(len(phone)))
+        #notcorrect#self.phones.append(i for i in range(len(phone)))
+        #notcorrect#self.phones = []
+        #notcorrect#self.phones.append(phone)
+        self.phones = list(phone)
         print(f"phones list: {self.phones}")
 
         
     def get_phones(self):
-        return self.phones
+        phones_values = []
+        for phone in self.phones:
+            phones_values.append(phone.value)
+
+        return phones_values
 
     def add_phone(phone):
         ...
@@ -53,7 +58,7 @@ if __name__ == "__main__":
     phone2 = Phone("54321")
     rec = Record(name, phone1, phone2)
 
-    print(f"rec.phones: {rec.get_phones()}")
+    print(f"rec phones values: {rec.get_phones()}")
 
     print(ab.add_record(rec))
     
@@ -62,11 +67,11 @@ if __name__ == "__main__":
     phone2 = Phone("21")
     rec = Record(name, phone1, phone2)
 
-    print(f"rec.phones: {rec.get_phones()}")
+    print(f"rec phones values: {rec.get_phones()}")
 
     print(ab.add_record(rec))
 
-    print(f"abdata for {name.value}: {ab.data.get(name.value).phones}")
+    print(f"abdata phones for {name.value}: {ab.data.get(name.value).get_phones()}")
 
 
     # print(rec.list_record)
