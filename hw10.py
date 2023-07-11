@@ -5,14 +5,16 @@ class AddressBook(UserList):
         self.data = []
 
     def add_record(self, rec):
-        # self.data[] = rec
+        print(f"{name.value} : {rec}")
+        self.data.append(f"{name.value} : {rec}")
         return f"Add success {rec}"
     
 class Record:
-
     def __init__(self, name, *phone):
+        print(f"phone1: {phone}")
         self.name = name
         self.phone = (i for i in range(len(phone)))
+        print(f"phone2: {self.phone}")
 
     def add(rec):
         return AddressBook.add_record(rec)
@@ -43,18 +45,31 @@ class Name(Field):
 
 class Phone(Field):
     def __init__(self, phone):
-        self.list = phone
+        self.number = phone
 
 if __name__ == "__main__":
 
     ab = AddressBook()
-    # print(ab)
+    print(ab)
     name = Name("Bill")
-    #phone1 = Phone("12345")
-    #phone2 = Phone("54321")
-    #rec = Record(name, phone1, phone2)
+    phone1 = Phone("12345")
+    phone2 = Phone("54321")
+    rec = Record(name, phone1, phone2)
+    #print(rec.name)
+    #print(rec.phone)
+    print(ab.add_record(rec))
+    print(ab)
+    name = Name("Jill")
+    phone1 = Phone("45")
+    phone2 = Phone("21")
+    rec = Record(name, phone1, phone2)
+    ab.add_record(rec)
+    print(ab)
 
     print(name.value)
+    print(phone1.number)
+    print(phone2.number)
+
     # print(rec.list_record)
     
     #ab.add_record(rec)
