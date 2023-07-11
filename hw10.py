@@ -2,37 +2,29 @@ from collections import UserList
 
 class AddressBook(UserList):
     def __init__(self):
-        self.data = []
+        self.data = {}
 
     def add_record(self, rec):
         print(f"{name.value} : {rec}")
-        self.data.append(f"{name.value} : {rec}")
+        #self.data.append(f"{name.value} : {rec}")
+        self.data[name.value] = rec
         return f"Add success {rec}"
     
 class Record:
     def __init__(self, name, *phone):
         print(f"phone1: {phone}")
         self.name = name
-        self.phone = (i for i in range(len(phone)))
+        #self.phone = (i for i in range(len(phone)))
+        self.phone = ("123", "321")
         print(f"phone2: {self.phone}")
 
-    def add(rec):
-        return AddressBook.add_record(rec)
+    def add_phone(rec):
+        ...
 
-    def edit(*args):
-        name = Name(args[0])
-        phone = Phone(args[1])
-        new_phone = Phone(args[2])
-
-        # if CONTACTS.get(name) != None:
-        #     CONTACTS.pop(name)
-        #     CONTACTS[name] = phone
-        #     #print(CONTACTS)
-        #     return f"Update success {name} {phone}"
-        # else:
-        #     return f"Notebook have not {name}"
+    def edit_phone(*args):
+        ...
         
-    def delete(name):
+    def delete_phone(name):
         ...
 
 class Field:
@@ -63,8 +55,13 @@ if __name__ == "__main__":
     phone1 = Phone("45")
     phone2 = Phone("21")
     rec = Record(name, phone1, phone2)
+
+    print(f"rec.phone: {rec.phone}")
+
     ab.add_record(rec)
     print(ab)
+
+    print(f"abdata: {ab.data.get(name.value).phone}")
 
     print(name.value)
     print(phone1.number)
