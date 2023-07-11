@@ -14,8 +14,14 @@ class Record:
     def __init__(self, name, *phone):
         self.name = name
         #self.phone = (i for i in range(len(phone)))
-        self.phone = ("123", "321")
-        print(f"phones list: {self.phone}")
+        #self.phones.append(i for i in range(len(phone)))
+        self.phones = []
+        self.phones.append(phone)
+        print(f"phones list: {self.phones}")
+
+        
+    def get_phones(self):
+        return self.phones
 
     def add_phone(phone):
         ...
@@ -25,6 +31,7 @@ class Record:
         
     def delete_phone(name):
         ...
+            
 
 class Field:
     ...
@@ -46,7 +53,7 @@ if __name__ == "__main__":
     phone2 = Phone("54321")
     rec = Record(name, phone1, phone2)
 
-    print(f"rec.phones: {rec.phone}")
+    print(f"rec.phones: {rec.get_phones()}")
 
     print(ab.add_record(rec))
     
@@ -55,11 +62,12 @@ if __name__ == "__main__":
     phone2 = Phone("21")
     rec = Record(name, phone1, phone2)
 
-    print(f"rec.phones: {rec.phone}")
+    print(f"rec.phones: {rec.get_phones()}")
 
     print(ab.add_record(rec))
 
-    print(f"abdata for {name.value}: {ab.data.get(name.value).phone}")
+    print(f"abdata for {name.value}: {ab.data.get(name.value).phones}")
+
 
     # print(rec.list_record)
     
